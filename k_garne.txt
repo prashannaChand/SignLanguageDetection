@@ -1,0 +1,17 @@
+1)initially data collect garchu from various users (first.py ) vanne program le . (first phase ma only a-z)
+2)create a ui/videointake garne platform (opencv ko videointake)
+3)video intake garera as first.py, continuously data read garcha and the data is continuously fed to the model
+4)if any data matches/pattern matches from the dataset , tala ya kunai thau ma tesko outout aaucha 
+5)else no data output 
+
+####-model le k garcha 
+-> given A-Z dataset ma train garcha for the labels A-z
+-> a-z recognize garna sakne able banaune by training and all
+-> continuously fetches the data, and gives out live output
+-> if in data range, gives out value , else null/nothing 
+
+### kaam kasari garne 
+-> initially model banauney 
+->rough patch ma dynamically image provide garera check garne 
+-> better accuracy aauna thale pachi cv2 ma apply garne 
+->ui/output ko lagi last ma as per the need 
