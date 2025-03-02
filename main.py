@@ -22,7 +22,7 @@ def prob_viz(res, actions, input_frame, colors,threshold):
     return output_frame
 
 
-# 1. New detection variables
+# variables haru banairakhya / variables declaration
 sequence = []
 sentence = []
 accuracy=[]
@@ -30,7 +30,7 @@ predictions = []
 threshold = 0.8 
 
 cap = cv2.VideoCapture(0)
-# Set mediapipe model 
+# mediapipe model set garya for hand detection 
 with mp_hands.Hands(
     model_complexity=0,
     min_detection_confidence=0.5,
@@ -44,7 +44,6 @@ with mp_hands.Hands(
         cropframe=frame[40:400,0:300]
         # print(frame.shape)
         frame=cv2.rectangle(frame,(0,40),(300,400),255,2)
-        # frame=cv2.putText(frame,"Active Region",(75,25),cv2.FONT_HERSHEY_COMPLEX_SMALL,2,255,2)
         image, results = mediapipe_detection(cropframe, hands)
         
         # Prediction logic
@@ -59,7 +58,7 @@ with mp_hands.Hands(
                 predictions.append(np.argmax(res))
                 
                 
-            #3. Viz logic
+            #unique ra high confidence prediction matra sentence ma append garne
                 if np.unique(predictions[-10:])[0]==np.argmax(res): 
                     if res[np.argmax(res)] > threshold: 
                         if len(sentence) > 0: 
@@ -74,8 +73,6 @@ with mp_hands.Hands(
                     sentence = sentence[-1:]
                     accuracy=accuracy[-1:]
 
-                # Viz probabilities
-                # frame = prob_viz(res, actions, frame, colors,threshold)
         except Exception as e:
             # print(e)
             pass
@@ -84,10 +81,10 @@ with mp_hands.Hands(
         cv2.putText(frame,"Output: -"+' '.join(sentence)+''.join(accuracy), (3,30), 
                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         
-        # Show to screen
+        # Screen ma dekhauney
         cv2.imshow('OpenCV Feed', frame)
 
-        # Break gracefully
+        # quit garne
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
     cap.release()
