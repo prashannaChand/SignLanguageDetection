@@ -8,15 +8,7 @@ import numpy as np
 import os
 import tensorflow as tf
 
-# Ensure TensorFlow is using the GPU
-physical_devices = tf.config.list_physical_devices('GPU')
-if len(physical_devices) > 0:
-    tf.config.experimental.set_memory_growth(physical_devices[0], True)
-    print("GPU is available and will be used for training.")
-else:
-    print("GPU is not available. Training will use the CPU.")
-
-# Define actions, number of sequences, and sequence length
+# Define actions, number of sequences, and sequence length if external bata chalena vane(in my case)
 actions = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 no_sequences = 37
 sequence_length = 37
@@ -31,7 +23,7 @@ for action in actions:
             res = np.load(os.path.join(DATA_PATH, action, str(sequence), "{}.npy".format(frame_num)), allow_pickle=True)
             print(f"Shape of res: {res.shape}")  # Print the shape of each res array
             if len(window) > 0 and res.shape != window[0].shape:
-                print(f"Skipping frame {frame_num} in sequence {sequence} for action {action} due to shape mismatch.")
+                print(f"Skipping frame {frame_num} in sequence {sequence} for action {action} due to shape mismatch.") # shape difference le garda model train/compialtion ma error aauxa
                 continue
             window.append(res)
         if len(window) == sequence_length:
@@ -77,7 +69,7 @@ model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categ
 # Train the model
 model.fit(X_train, y_train, epochs=200, callbacks=[tb_callback], validation_data=(X_test, y_test))
 
-# Print model summary
+# Print model summary if evaluate garne vaye/ projects ma use garne vaye
 model.summary()
 
 # Save the model architecture and weights
@@ -85,3 +77,5 @@ model_json = model.to_json()
 with open("model.json", "w") as json_file:
     json_file.write(model_json)
 model.save('model.h5')
+
+#chandey dai le model banayo
