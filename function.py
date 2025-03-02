@@ -37,6 +37,7 @@ DATA_PATH = os.path.join('data')
 
 actions = np.array(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'])
 
-no_sequences = 40
+no_sequences = 37
 
-sequence_length = 40
+sequence_length = 37
+# maile 37 ota data use gareko chu 
