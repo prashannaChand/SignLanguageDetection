@@ -21,7 +21,7 @@ This project aims to create a system capable of recognizing hand gestures for Am
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/sign-language-recognition.git
+    git clone https://github.com/prashannaChand/sign-language-recognition.git
     cd sign-language-recognition
     ```
 
@@ -31,12 +31,7 @@ This project aims to create a system capable of recognizing hand gestures for Am
     source env/bin/activate  # On Windows, use `env\Scripts\activate`
     ```
 
-3. Install required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Make sure you have the following dependencies installed:
+3. Make sure you have the following dependencies installed:
     - **MediaPipe** (for hand landmark detection)
     - **OpenCV** (for real-time video processing)
     - **TensorFlow** (for machine learning model)
