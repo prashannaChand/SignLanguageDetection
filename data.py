@@ -6,8 +6,8 @@ import numpy as np
 
 # Define actions, number of sequences, and sequence length
 action = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-no_sequences = 40
-sequence_length = 40
+no_sequences = 37
+sequence_length = 37
 DATA_PATH = 'D:/myprojects/signlanguageml/data'
 
 # Create directories for data storage
